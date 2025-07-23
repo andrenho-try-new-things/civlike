@@ -3,6 +3,7 @@ local Game = require "game"
 G = nil
 
 function love.load()
+   love.filesystem.setIdentity(love.filesystem.getIdentity(), true)
    love.graphics.setDefaultFilter("nearest")
    G = Game.new("sample")
 end

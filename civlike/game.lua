@@ -1,3 +1,5 @@
+local pp = require 'pprint'
+
 Game = {}
 
 function Game.new(filename)
@@ -9,7 +11,12 @@ function Game.new(filename)
 end
 
 function Game:load(filename)
-   print(filename)
+   -- love.filesystem.mount(filename .. ".zip", filename)
+   self.gamepath = filename
+   local chunk, err = love.filesystem.load(self.gamepath .. "/main.lua")
+   if err then error(err) end
+   self.conf = chunk()
+   pp(self.conf.conf())
 end
 
 
