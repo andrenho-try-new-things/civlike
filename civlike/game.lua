@@ -2,21 +2,21 @@ local pp = require 'pprint'
 
 Game = {}
 
-function Game.new(filename)
-   assert(type(filename) == "string")
+function Game.new(module_name)
+   assert(type(module_name) == "string")
 
    local G = setmetatable({}, { __index = Game })
-   G:load(filename)
+   G:load_module(module_name)
    return G
 end
 
-function Game:load(filename)
+function Game:load_module(module_name)
    -- love.filesystem.mount(filename .. ".zip", filename)
-   self.gamepath = filename
+   self.module_name = module_name
    local chunk, err = love.filesystem.load(self.gamepath .. "/main.lua")
    if err then error(err) end
-   self.conf = chunk()
-   pp(self.conf.conf())
+   self.module = chunk()
+   self.config = self.custom.conf()
 end
 
 

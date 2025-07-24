@@ -1,6 +1,6 @@
 local Game = require "game"
 
-G = nil
+local G = nil
 
 function love.load()
    love.filesystem.setIdentity(love.filesystem.getIdentity(), true)
