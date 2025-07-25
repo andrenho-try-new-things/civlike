@@ -9,7 +9,8 @@ static void events();
 static void draw();
 
 static SampleGame rules;
-static Game game(&rules);
+static Game game(rules);
+static Graphics graphics(rules);
 
 Camera2D camera {};
 
@@ -63,7 +64,7 @@ static void draw()
     ClearBackground(BLACK);
 
     BeginMode2D(camera);
-    game.draw_tiles();
+    game.draw_tiles(graphics);
     EndMode2D();
 
     EndDrawing();

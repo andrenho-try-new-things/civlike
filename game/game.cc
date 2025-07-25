@@ -2,19 +2,18 @@
 
 #include "rules/game_rules.hh"
 
-Game::Game(GameRules const* rules)
+Game::Game(GameRules const& rules)
     : rules_(rules)
 {
-    auto [w, h] = rules_->map_size();
+    auto [w, h] = rules_.map_size();
     map_w_ = w;
     map_h_ = h;
-    tiles_.insert(tiles_.begin(), map_w_ * map_h_, rules_->default_tile());
+    tiles_.insert(tiles_.begin(), map_w_ * map_h_, rules_.default_tile());
 }
 
-void Game::draw_tiles() const
+void Game::draw_tiles(Graphics& graphics) const
 {
-    Graphics graphics;
-    auto const [tile_w, tile_h] = rules_->tile_size();
+    auto const [tile_w, tile_h] = rules_.tile_size();
 
     for (ssize_t x = 0; x < map_w_; ++x) {
         for (ssize_t y = 0; y < map_h_; ++y) {
@@ -24,7 +23,7 @@ void Game::draw_tiles() const
                 tile(x - 1, y), tile(x, y), tile(x + 1, y),
                 tile(x - 1, y + 1), tile(x, y + 1), tile(x + 1, y + 1),
             };
-            rules_->draw_tile(graphics, tiles);
+            rules_.draw_tile(graphics, tiles);
         }
     }
 }

@@ -15,6 +15,7 @@ public:
 
 private:
     Id grassland, ocean;
+    Id atlas, img_grassland[4], img_ocean[4];
 
     static constexpr size_t TILE_SIZE = 32;
 };
