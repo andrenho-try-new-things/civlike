@@ -6,9 +6,12 @@
 class SampleGame : public GameRules {
 public:
     SampleGame();
+    virtual ~SampleGame() = default;
 
     Tile default_tile() const override { return { .terrain = ocean }; }
     std::pair<size_t, size_t> map_size() const override { return { 30, 30 }; }
+
+    void draw_map(size_t w, size_t h, std::vector<Tile>& tiles) const override;
 
     std::pair<size_t, size_t> tile_size() const override { return { TILE_SIZE, TILE_SIZE }; }
     void draw_tile(Graphics const& graphics, std::array<Tile, 9> const& tiles) const override;

@@ -9,6 +9,7 @@ Game::Game(GameRules const& rules)
     map_w_ = w;
     map_h_ = h;
     tiles_.insert(tiles_.begin(), map_w_ * map_h_, rules_.default_tile());
+    rules_.draw_map(map_w_, map_h_, tiles_);
 }
 
 void Game::draw_tiles(Graphics& graphics) const

@@ -21,9 +21,9 @@ public:
     void draw_atlas_image(int x, int y, Id atlas_image) const;
 
 private:
-    GameRules const&                  rules_;
-    ssize_t                           rel_x_ = 0, rel_y_ = 0;
-    std::unordered_map<Id, Texture2D> textures_;
+    GameRules const&                          rules_;
+    ssize_t                                   rel_x_ = 0, rel_y_ = 0;
+    mutable std::unordered_map<Id, Texture2D> textures_;
 
     std::string find_file(std::string const& filename) const;
 };

@@ -27,14 +27,17 @@ void Graphics::draw_atlas_image(int x, int y, Id atlas_image) const
     if (it == textures_.end()) {
         std::string path = find_file(rules_.image(a.image));
         texture = LoadTexture(path.c_str());  // TODO - change this to load from binary
+        textures_[a.image] = texture;
     } else {
         texture = it->second;
     }
 
-    DrawTexture(texture, x + rel_x_, y + rel_y_, WHITE);
+    Rectangle source = { (float) a.x, (float) a.y, (float) a.w, (float) a.h };
+    Vector2 dest = { (float) (x + rel_x_), (float) (y + rel_y_) };
+    DrawTextureRec(texture, source, dest, WHITE);
 }
 
 std::string Graphics::find_file(std::string const& filename) const
 {
-    return "sample/" + filename;  // TODO
+    return "../sample/" + filename;  // TODO
 }

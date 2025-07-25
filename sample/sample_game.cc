@@ -31,3 +31,9 @@ void SampleGame::draw_tile(Graphics const& graphics, std::array<Tile, 9> const& 
     graphics.draw_pixel(TILE_SIZE - 2, TILE_SIZE - 1, BLACK);
     graphics.draw_pixel(TILE_SIZE - 1, TILE_SIZE - 2, BLACK);
 }
+
+void SampleGame::draw_map(size_t w, size_t h, std::vector<Tile>& tiles) const
+{
+    tile(tiles, w, 3, 3) = Tile { grassland };
+    tile(tiles, w, 4, 3) = Tile { grassland };
+}
