@@ -8,6 +8,7 @@ class Graphics {
 public:
     void set_rel(ssize_t x, ssize_t y);
     void draw_rectangle(int x, int y, int w, int h, Color color) const;
+    void draw_pixel(int x, int y, Color color) const;
 
 private:
     ssize_t rel_x_ = 0, rel_y_ = 0;

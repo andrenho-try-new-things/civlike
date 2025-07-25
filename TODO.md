@@ -1,8 +1,11 @@
 v0.1:
-- [ ] Load config
-- [ ] Simple config (terrain only)
-- [ ] Map building
+- [x] Load config
+- [x] Simple config (terrain only)
 - [ ] Draw
+  - [x] Move map around
+  - [ ] Draw from pixel art (simple)
+  - [ ] Draw from pixel art (complex)
+- [ ] Map building
 - [ ] Save/load
 
 v0.2:

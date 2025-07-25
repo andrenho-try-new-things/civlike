@@ -11,13 +11,19 @@
 struct Terrain {};
 
 // custom games need to implement this class
+
 class GameRules {
 public:
     virtual ~GameRules() = default;
 
+    // game parameters
     virtual Tile default_tile() const = 0;
     virtual std::pair<size_t, size_t> map_size() const = 0;
 
+    // UI
+    virtual float suggested_zoom() const { return 2; }
+    virtual float min_zoom() const { return 0.5; }
+    virtual float max_zoom() const { return 4; }
     virtual std::pair<size_t, size_t> tile_size() const = 0;
     virtual void draw_tile(Graphics const& graphics, std::array<Tile, 9> const& tiles) const = 0;
 

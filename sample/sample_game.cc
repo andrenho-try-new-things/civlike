@@ -13,4 +13,8 @@ void SampleGame::draw_tile(Graphics const& graphics, std::array<Tile, 9> const& 
         graphics.draw_rectangle(0, 0, TILE_SIZE, TILE_SIZE, { 128, 255, 128, 255 });
     else if (center.terrain == ocean)
         graphics.draw_rectangle(0, 0, TILE_SIZE, TILE_SIZE, { 128, 128, 255, 255 });
+
+    graphics.draw_pixel(TILE_SIZE - 1, TILE_SIZE - 1, BLACK);
+    graphics.draw_pixel(TILE_SIZE - 2, TILE_SIZE - 1, BLACK);
+    graphics.draw_pixel(TILE_SIZE - 1, TILE_SIZE - 2, BLACK);
 }
