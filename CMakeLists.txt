@@ -27,16 +27,18 @@ set(PROJECT_SOURCES
 )
 
 add_executable(${PROJECT_NAME}
-        module/game_module.hh
-        module/game_module.cc
+        rules/game_rules.hh
+        rules/game_rules.cc
         sample/sample_game.cc
         sample/sample_game.hh
         game/game.cc
         game/game.hh
         game/tile.hh
-        module/id.hh
+        rules/id.hh
+        ui/graphics.cc
+        ui/graphics.hh
 )
 target_sources(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE .)
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wno-sign-compare)
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
